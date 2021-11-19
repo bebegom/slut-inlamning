@@ -244,22 +244,6 @@ document.querySelector('#quiz').addEventListener('click', e => {
 
 
 
-/*
-const wrongAnswerPosition1 = Math.floor(Math.random()*4)+1;
-const wrongAnswerID1 = "btn" + wrongAnswerPosition1;
-document.getElementById(wrongAnswerID1).innerHTML = randomWrongAnswer1;
-
-const wrongAnswerPosition2 = Math.floor(Math.random()*4)+1;
-const wrongAnswerID2 = "btn" + wrongAnswerPosition2;
-document.getElementById(wrongAnswerID2).innerHTML = randomWrongAnswer2;
-
-const wrongAnswerPosition3 = Math.floor(Math.random()*4)+1;
-const wrongAnswerID3 = "btn" + wrongAnswerPosition3;
-document.getElementById(wrongAnswerID3).innerHTML = randomWrongAnswer3;
-*/
-
-
-
 
 
 
