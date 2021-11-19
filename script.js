@@ -179,11 +179,11 @@ console.log(rightAnswer, rightAnswerID);
 
 // få det felaktiga svaret på random position
 let wrongAnswer1 = classmates[Math.floor(Math.random() * classmates.length)].name;
-/*
+
 while (wrongAnswer1 === rightAnswer) {
 	wrongAnswer1 = classmates[Math.floor(Math.random() * classmates.length)].name;
 }
-*/
+
 
 let wrongAnswerPosition = Math.floor(Math.random()*4)+1;
 while (rightAnswerPosition === wrongAnswerPosition) {
@@ -196,11 +196,11 @@ document.getElementById(wrongAnswerID).innerHTML = wrongAnswer1;
 
 
 let wrongAnswer2 = classmates[Math.floor(Math.random() * classmates.length)].name;
-/*
+
 while (wrongAnswer2 === rightAnswer || wrongAnswer2 === wrongAnswer1) {
 	wrongAnswer2 = classmates[Math.floor(Math.random() * classmates.length)].name;
 }
-*/
+
 
  let wrongAnswer2Position = Math.floor(Math.random()*4)+1;
 while (rightAnswerPosition === wrongAnswer2Position || wrongAnswerPosition === wrongAnswer2Position) {
@@ -213,11 +213,11 @@ document.getElementById(wrongAnswerID).innerHTML = wrongAnswer2;
 
 
 let wrongAnswer3 = classmates[Math.floor(Math.random() * classmates.length)].name;
-/*
+
 while (wrongAnswer3 === rightAnswer || wrongAnswer3 === wrongAnswer1 || wrongAnswer3 === wrongAnswer2) {
 	wrongAnswer3 = classmates[Math.floor(Math.random() * classmates.length)].name;
 }
-*/
+
 
  let wrongAnswer3Position = Math.floor(Math.random()*4)+1;
 while (rightAnswerPosition === wrongAnswer3Position || wrongAnswerPosition === wrongAnswer3Position || wrongAnswer2Position === wrongAnswer3Position) {
@@ -241,10 +241,6 @@ document.querySelector('#quiz').addEventListener('click', e => {
 	// console.log(randomImageIndex().name);
 
 // fixa så att namn inte kommer dubbla gånger
-
-
-
-hello 
 
 
 
