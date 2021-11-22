@@ -157,22 +157,23 @@ const classmates = [
 	},
 ];
 
-	// const randomImageIndex = () => {
-	// 	return classmates[Math.floor(Math.random() * classmates.length)];
-	// }
+// get a random index from the array
+let randomImageIndex = () => {
+	return classmates[Math.floor(Math.random() * classmates.length)];
+}
+let randomIndex = randomImageIndex();
 
 const imageOfClassmateEl = document.querySelector("#imageOfClassmate");
-const randomIndex = classmates[Math.floor(Math.random() * classmates.length)];
-const randomImage = function() {
+let randomImage = function() {
     imageOfClassmateEl.setAttribute('src', randomIndex.image );
 }
 randomImage();
 
 // få det rätta svaret på random position
-const rightAnswer = randomIndex.name
+let rightAnswer = randomIndex.name
 
-const rightAnswerPosition = Math.floor(Math.random()*4)+1;
-const rightAnswerID = "btn" + rightAnswerPosition;
+let rightAnswerPosition = Math.floor(Math.random()*4)+1;
+let rightAnswerID = "btn" + rightAnswerPosition;
 document.getElementById(rightAnswerID).innerHTML = rightAnswer;
 console.log(rightAnswer, rightAnswerID);
 
@@ -193,7 +194,6 @@ while (rightAnswerPosition === wrongAnswerPosition) {
 let wrongAnswerID = "btn" + wrongAnswerPosition;
 document.getElementById(wrongAnswerID).innerHTML = wrongAnswer1;
 //console.log("wrong answer 1:", wrongAnswer1, wrongAnswerID);
-
 
 let wrongAnswer2 = classmates[Math.floor(Math.random() * classmates.length)].name;
 
@@ -230,11 +230,77 @@ document.getElementById(wrongAnswerID).innerHTML = wrongAnswer3;
 
 
 // click- event så att nästa bild kommer när man gissar
-document.querySelector('#quiz').addEventListener('click', e => {
-	// console.log(e.target.tagName);
-	if (/*e.target.tagName === 'BUTTON' &&*/ e.target.innerHTML === rightAnswer) {
-		console.log("That was right");
-	}
+document.querySelector('#btnContainer').addEventListener('click', e => {
+
+		if (e.target.innerHTML === rightAnswer) {
+			console.log("That was right");
+		} else {
+			console.log("That was wrong");
+		}
+
+		randomImageIndex();
+		randomIndex = randomImageIndex();
+		randomImage();
+
+		// få ett nytt rätt svar på random position
+		rightAnswer = randomIndex.name
+
+		rightAnswerPosition = Math.floor(Math.random()*4)+1;
+		rightAnswerID = "btn" + rightAnswerPosition;
+		document.getElementById(rightAnswerID).innerHTML = rightAnswer;
+		console.log(rightAnswer, rightAnswerID);
+
+
+		// få det felaktiga svaret på random position
+		wrongAnswer1 = classmates[Math.floor(Math.random() * classmates.length)].name;
+
+		while (wrongAnswer1 === rightAnswer) {
+			wrongAnswer1 = classmates[Math.floor(Math.random() * classmates.length)].name;
+		}
+
+
+		wrongAnswerPosition = Math.floor(Math.random()*4)+1;
+		while (rightAnswerPosition === wrongAnswerPosition) {
+			wrongAnswerPosition = Math.floor(Math.random()*4)+1;
+			//console.log(wrongAnswerPosition);
+		} 
+		wrongAnswerID = "btn" + wrongAnswerPosition;
+		document.getElementById(wrongAnswerID).innerHTML = wrongAnswer1;
+		//console.log("wrong answer 1:", wrongAnswer1, wrongAnswerID);
+
+		wrongAnswer2 = classmates[Math.floor(Math.random() * classmates.length)].name;
+
+		while (wrongAnswer2 === rightAnswer || wrongAnswer2 === wrongAnswer1) {
+			wrongAnswer2 = classmates[Math.floor(Math.random() * classmates.length)].name;
+		}
+
+
+		wrongAnswer2Position = Math.floor(Math.random()*4)+1;
+		while (rightAnswerPosition === wrongAnswer2Position || wrongAnswerPosition === wrongAnswer2Position) {
+			wrongAnswer2Position = Math.floor(Math.random()*4)+1;
+			//console.log(wrongAnswer2Position);
+		} 
+		wrongAnswerID = "btn" + wrongAnswer2Position;
+		document.getElementById(wrongAnswerID).innerHTML = wrongAnswer2;
+		//console.log("wrong answer 2:", wrongAnswer2, wrongAnswerID);
+
+
+		wrongAnswer3 = classmates[Math.floor(Math.random() * classmates.length)].name;
+
+		while (wrongAnswer3 === rightAnswer || wrongAnswer3 === wrongAnswer1 || wrongAnswer3 === wrongAnswer2) {
+			wrongAnswer3 = classmates[Math.floor(Math.random() * classmates.length)].name;
+		}
+
+
+		wrongAnswer3Position = Math.floor(Math.random()*4)+1;
+		while (rightAnswerPosition === wrongAnswer3Position || wrongAnswerPosition === wrongAnswer3Position || wrongAnswer2Position === wrongAnswer3Position) {
+			wrongAnswer3Position = Math.floor(Math.random()*4)+1;
+		//	console.log(wrongAnswer3Position);
+		} 
+		wrongAnswerID = "btn" + wrongAnswer3Position;
+		document.getElementById(wrongAnswerID).innerHTML = wrongAnswer3;
+		//console.log("wrong answer 3:", wrongAnswer3, wrongAnswerID);
+	
 });
 
 	// console.log(randomImageIndex().name);
