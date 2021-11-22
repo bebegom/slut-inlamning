@@ -175,7 +175,7 @@ let rightAnswer = randomIndex.name
 let rightAnswerPosition = Math.floor(Math.random()*4)+1;
 let rightAnswerID = "btn" + rightAnswerPosition;
 document.getElementById(rightAnswerID).innerHTML = rightAnswer;
-console.log(rightAnswer, rightAnswerID);
+// console.log(rightAnswer, rightAnswerID);
 
 
 // få det felaktiga svaret på random position
@@ -229,7 +229,7 @@ document.getElementById(wrongAnswerID).innerHTML = wrongAnswer3;
 //console.log("wrong answer 3:", wrongAnswer3, wrongAnswerID);
 
 
-// click- event så att nästa bild kommer när man gissar
+// click- event så en ny bild kommer när man gissar
 document.querySelector('#btnContainer').addEventListener('click', e => {
 
 		if (e.target.innerHTML === rightAnswer) {
@@ -248,7 +248,7 @@ document.querySelector('#btnContainer').addEventListener('click', e => {
 		rightAnswerPosition = Math.floor(Math.random()*4)+1;
 		rightAnswerID = "btn" + rightAnswerPosition;
 		document.getElementById(rightAnswerID).innerHTML = rightAnswer;
-		console.log(rightAnswer, rightAnswerID);
+		// console.log(rightAnswer, rightAnswerID);
 
 
 		// få det felaktiga svaret på random position
