@@ -1,0 +1,77 @@
+body {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(94, 33, 51);
+    color: rgb(221, 209, 197);
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+
+.showquiz {
+    display: flex; 
+     flex-direction: column;
+     width: 100%;
+}  
+
+#imageOfClassmate {
+    width: 270px;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#btnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.btn {
+    width: 300px;
+    margin: 1%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(221, 209, 197);
+}
+
+.hide {
+    display: none;
+}
+
+
+@media screen and (min-width: 600px) {
+    
+    body {
+        font-size: 1.1rem;
+    }
+
+    #imageOfClassmate {
+        width: 350px;
+    }
+
+    #btnContainer {
+        flex-direction: unset;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        width: 45%;
+    }
+}
+
+
+@media screen and (min-width: 890px) {
+
+    #btnContainer {
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 20%;
+    }
+}
