@@ -193,7 +193,7 @@ let wrongAnswerPosition3;
 // get a random index from classmates
 const getRandomIndex = () => classmates[Math.floor(Math.random() * classmates.length)];
 
-// get random number for btn
+// get random number for btn-position
 const getRandomBtnNumber = () => Math.floor(Math.random()*4)+1;
 
 // set image and answers for question
@@ -208,7 +208,6 @@ const setQuestion = function() {
 	document.getElementById(rightAnswerPosition).innerHTML = rightAnswer;
 	
 	// 3 felaktiga svar 
-	// försäkra att det inte blir samma namn när jag drar namn från annan array
 	if (classmatesCopy.length > 3) {
 		wrongAnswer1 = classmatesCopy[1].name;
 		wrongAnswer2 = classmatesCopy[2].name; 
@@ -218,6 +217,7 @@ const setQuestion = function() {
 		wrongAnswer2 = getRandomIndex().name;
 		wrongAnswer3 = getRandomIndex().name;
 		
+		// make sure the same name doesn't show up when taking names from a different array
 		while (rightAnswer === wrongAnswer1) {
 			wrongAnswer1 = classmates[Math.floor(Math.random() * classmates.length)].name;
 			
@@ -238,19 +238,17 @@ const setQuestion = function() {
 	wrongAnswerPosition2 = "btn" + getRandomBtnNumber();
 	wrongAnswerPosition3 = "btn" + getRandomBtnNumber();
 
+	// make sure they don't get the same position
 	while (rightAnswerPosition === wrongAnswerPosition1) {
 		wrongAnswerPosition1 = "btn" + getRandomBtnNumber();
-		//console.log(wrongAnswerPosition1);
 	}
 	
 	while (rightAnswerPosition === wrongAnswerPosition2 || wrongAnswerPosition1 === wrongAnswerPosition2) {
 		wrongAnswerPosition2 = "btn" + getRandomBtnNumber();
-		//console.log(wrongAnswerPosition2);
 	}
 
 	while (rightAnswerPosition === wrongAnswerPosition3 || wrongAnswerPosition2 === wrongAnswerPosition3 || wrongAnswerPosition1 === wrongAnswerPosition3) {
 		wrongAnswerPosition3 = "btn" + getRandomBtnNumber();
-		//console.log(wrongAnswerPosition3);
 	}
 
 	document.getElementById(wrongAnswerPosition1).innerHTML = wrongAnswer1;
@@ -258,7 +256,7 @@ const setQuestion = function() {
 	document.getElementById(wrongAnswerPosition3).innerHTML = wrongAnswer3;
 }
 
-// starta spelet
+// start the game
 btnStartGame.addEventListener('click', () => {
 	
 	btnStartGame.classList.toggle("hide");
@@ -293,10 +291,12 @@ btnStartGame.addEventListener('click', () => {
 
 				// reset 
 				guesses = 0;
-				arrayOfCorrectGuesses = [];
-				arrayOfWrongGuesses = [];
 				classmatesCopy = [...classmates];
 				shuffle(classmatesCopy);
+				arrayOfCorrectGuesses = [];
+				arrayOfWrongGuesses = [];
+
+				setQuestion();
 
 			};
 			
