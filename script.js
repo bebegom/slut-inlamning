@@ -291,10 +291,14 @@ btnStartGame.addEventListener('click', () => {
 			
 			guesses++;
 			console.log("you've guessed ", guesses, " times");
+			console.log(arrayOfCorrectGuesses);
+			console.log(arrayOfWrongGuesses);
+
 			
 			classmatesCopy.shift();
 			
-			if (guesses === classmates.length) {
+			// if (guesses === classmates.length) {
+				if (guesses === 10) {
 				// end game and show results
 
 				alert(`You got ${arrayOfCorrectGuesses.length} right and ${arrayOfWrongGuesses.length} wrong out of ${classmates.length}. Click OK to play again!`);
