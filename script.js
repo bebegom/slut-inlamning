@@ -287,7 +287,7 @@ btnStartGame.addEventListener('click', () => {
 			} else {
 				arrayOfWrongGuesses.push(classmatesCopy[0]);
 				beenGuessed.push(classmatesCopy[0]);
-				console.log(e.target.innerHTML, " was ", "wrong, right answer was ", rightAnswer);
+				console.log(e.target.innerHTML, " was ", "wrong, correct answer was ", rightAnswer);
 			};
 			
 			
