@@ -170,6 +170,7 @@ let classmatesCopy = [...classmates];
 let arrayOfCorrectGuesses = [];
 let arrayOfWrongGuesses = [];
 let guesses = 0;
+let beenGuessed = [];
 
 // fisher-yates shuffle function   shuffle the classmates
 const shuffle = (array) => {
@@ -192,6 +193,7 @@ let wrongAnswerPosition3;
 
 // get a random index from classmates
 const getRandomIndex = () => classmates[Math.floor(Math.random() * classmates.length)];
+const getRandomIndexOfBeenGuessed = () => beenGuessed[Math.floor(Math.random() * beenGuessed.length)];
 
 // get random number for btn-position
 const getRandomBtnNumber = () => Math.floor(Math.random()*4)+1;
@@ -213,10 +215,14 @@ const setQuestion = function() {
 		wrongAnswer2 = classmatesCopy[2].name; 
 		wrongAnswer3 = classmatesCopy[3].name;
 	} else {
-		wrongAnswer1 = getRandomIndex().name;
-		wrongAnswer2 = getRandomIndex().name;
-		wrongAnswer3 = getRandomIndex().name;
+		shuffle(beenGuessed)
+		wrongAnswer1 = beenGuessed[0].name;
+		beenGuessed.shift();
+		wrongAnswer2 = beenGuessed[0].name;
+		beenGuessed.shift();
+		wrongAnswer3 = beenGuessed[0].name;
 		
+		/*
 		// make sure the same name doesn't show up when taking names from a different array
 		while (rightAnswer === wrongAnswer1) {
 			wrongAnswer1 = classmates[Math.floor(Math.random() * classmates.length)].name;
@@ -230,6 +236,7 @@ const setQuestion = function() {
 			wrongAnswer1 = classmates[Math.floor(Math.random() * classmates.length)].name;
 			
 		}
+		*/
 
 	}
 
@@ -275,19 +282,22 @@ btnStartGame.addEventListener('click', () => {
 
 			if (e.target.innerHTML === rightAnswer) {
 				arrayOfCorrectGuesses.push(classmatesCopy[0]);
+				beenGuessed.push(classmatesCopy[0]);
 			} else {
 				arrayOfWrongGuesses.push(classmatesCopy[0]);
+				beenGuessed.push(classmatesCopy[0]);
 			};
 			
 			
 			guesses++;
+			console.log("you've guessed ", guesses, " times");
 			
 			classmatesCopy.shift();
 			
 			if (guesses === classmates.length) {
 				// end game and show results
 
-				alert(`You got ${arrayOfCorrectGuesses.length} right and ${arrayOfWrongGuesses.length} wrong out of ${classmates.length}. Click on OK to play again!`);
+				alert(`You got ${arrayOfCorrectGuesses.length} right and ${arrayOfWrongGuesses.length} wrong out of ${classmates.length}. Click OK to play again!`);
 
 				// reset 
 				guesses = 0;
@@ -295,6 +305,7 @@ btnStartGame.addEventListener('click', () => {
 				shuffle(classmatesCopy);
 				arrayOfCorrectGuesses = [];
 				arrayOfWrongGuesses = [];
+				beenGuessed = [];
 
 				setQuestion();
 
