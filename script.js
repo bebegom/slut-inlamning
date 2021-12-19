@@ -283,16 +283,15 @@ btnStartGame.addEventListener('click', () => {
 			if (e.target.innerHTML === rightAnswer) {
 				arrayOfCorrectGuesses.push(classmatesCopy[0]);
 				beenGuessed.push(classmatesCopy[0]);
+				console.log(e.target.innerHTML, " was ", "correct");
 			} else {
 				arrayOfWrongGuesses.push(classmatesCopy[0]);
 				beenGuessed.push(classmatesCopy[0]);
+				console.log(e.target.innerHTML, " was ", "wrong, right answer was ", rightAnswer);
 			};
 			
 			
 			guesses++;
-			console.log("you've guessed ", guesses, " times");
-			console.log(arrayOfCorrectGuesses);
-			console.log(arrayOfWrongGuesses);
 
 			
 			classmatesCopy.shift();
