@@ -290,11 +290,11 @@ btnStartGame.addEventListener('click', () => {
 				console.log(e.target.innerHTML, " was ", "wrong, correct answer was ", rightAnswer);
 			};
 			
+			classmatesCopy.shift();
 			
 			guesses++;
 
 			
-			classmatesCopy.shift();
 			
 			if (guesses === classmates.length) {
 				// if (guesses === 10) {
