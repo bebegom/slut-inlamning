@@ -221,22 +221,6 @@ const setQuestion = function() {
 		wrongAnswer2 = beenGuessed[0].name;
 		beenGuessed.shift();
 		wrongAnswer3 = beenGuessed[0].name;
-		
-		/*
-		// make sure the same name doesn't show up when taking names from a different array
-		while (rightAnswer === wrongAnswer1) {
-			wrongAnswer1 = classmates[Math.floor(Math.random() * classmates.length)].name;
-			
-		}
-		while (rightAnswer === wrongAnswer2 || wrongAnswer1 === wrongAnswer2) {
-			wrongAnswer2 = classmates[Math.floor(Math.random() * classmates.length)].name;
-			
-		}
-		while (rightAnswer === wrongAnswer3 || wrongAnswer1 === wrongAnswer3 || wrongAnswer2 === wrongAnswer3) {
-			wrongAnswer1 = classmates[Math.floor(Math.random() * classmates.length)].name;
-			
-		}
-		*/
 
 	}
 
