@@ -293,13 +293,14 @@ btnStartGame.addEventListener('click', () => {
 			
 			guesses++;
 
+			classmatesCopy.shift();
 			
 			
 			if (guesses === classmates.length) {
 				// end game and show results
-				
+
 				alert(`You got ${arrayOfCorrectGuesses.length} right and ${arrayOfWrongGuesses.length} wrong out of ${classmates.length}. Click OK to play again!`);
-				
+
 				// reset 
 				guesses = 0;
 				classmatesCopy = [...classmates];
@@ -307,12 +308,11 @@ btnStartGame.addEventListener('click', () => {
 				arrayOfCorrectGuesses = [];
 				arrayOfWrongGuesses = [];
 				beenGuessed = [];
-				
+
 				setQuestion();
-				
+
 			};
 			
-			classmatesCopy.shift();
 			setQuestion();
 
 		};
